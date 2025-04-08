@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🪐 Star Type Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🛰️ Black Hole Type Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if filename %}
+            <h2>Uploaded Image:</h2>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded image" height="200px">
+        {% endif %}
+
+        {% if label %}
+            <h2>This is classified as: <span>{{ label }}</span></h2>
+        {% endif %}
+    </div>
+</body>
+</html>
